@@ -154,7 +154,7 @@ button:first-child {
     margin-right: 10px;
 }
 
-.btn-voltar,
+.btn-reiniciar,
 .btn-resultado {
     display: none;
 }
@@ -167,6 +167,12 @@ button:first-child {
 .btn-resultado:hover {
     border-color: #9b0202;
     background-color: #9b0202;
+}
+
+[class*="btn-"]:disabled,
+[class*="btn-"]:disabled:hover {
+    cursor: default;
+    opacity: .5;
 }
 
 .anime-sairEsquerda {
