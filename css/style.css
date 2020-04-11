@@ -67,6 +67,17 @@ section li:hover span {
     background-color: #999;
 }
 
+section li.selecionado {
+    color: #fff;
+    background: #f00;
+    border-color: #f00;
+}
+
+section li.selecionado span {
+    color: #000;
+    background-color: #999;
+}
+
 article h2 {
     text-align: center;
     color: #444;
@@ -100,6 +111,10 @@ span {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+article .image {
+    background-image: url("../img/designer.jpg");
 }
 
 img {
