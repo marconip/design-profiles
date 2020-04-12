@@ -18,6 +18,15 @@ var design_personagem = 0;
 var design_jogos = 0;
 var design_editorial = 0;
 
+//somente demostrativo das pontuações das escolhas
+console.log(
+    "Web_design " + web_design + " - " +
+    "Design_grafico " + design_grafico + " - " +
+    "Ui_design " + ui_design + " - " +
+    "design_digital " + design_digital + " - " +
+    "design_editorial " + design_editorial
+);
+
 //Click de escolha para começar
 comecar.onclick = function () {
     inicio.classList.add("anime-desaparecer");
@@ -26,27 +35,108 @@ comecar.onclick = function () {
         document.querySelector(".controller").style.display = "flex";
     }, 900);
     mostrarPerguntas();
+};
+
+
+//função para pegar apenas 1 click na escolha
+function decrementar(resposta) {
+    if (resposta > 0) return resposta -= 1;
+    return resposta;
 }
 
-//esconde todas as perguntas e mostra somente uma
-function mostrarPerguntas() {
-    asPerguntas.forEach(function (asPergunta, i) {
-        asPergunta.classList.add("anime-desaparecer");
-        setTimeout(function () {
-            asPergunta.removeAttribute("style");
-            asPergunta.removeAttribute("class");
-        }, 800);
-        if (numero == i) {
-            setTimeout(function () {
-                passar.setAttribute("disabled", "disabled");
-                resultado.setAttribute("disabled", "disabled");
-                asPergunta.style.display = "block";
-                asPergunta.classList.add("anime-aparecer");
-            }, 800);
-            numPergunta.innerHTML = numero + 1 + " de " + asPerguntas.length;
+
+//marca e desmarca a resposta selecionada
+var listaRespostas = document.querySelectorAll("section li");
+listaRespostas.forEach(function (este) {
+    este.addEventListener("click", function (e) {
+        passar.removeAttribute("disabled");
+        resultado.removeAttribute("disabled");
+        var elems = document.querySelector(".selecionado");
+        if (elems !== null) {
+            elems.removeAttribute("class");
         }
-    })
-};
+        e.target.className = "selecionado";
+
+        //Chama função para pegar apenas 1 click na escolha
+        design_marca = decrementar(design_marca);
+        web_design = decrementar(web_design);
+        design_grafico = decrementar(design_grafico);
+        design_produto = decrementar(design_produto);
+        ux_design = decrementar(ux_design);
+        ui_design = decrementar(ui_design);
+        design_digital = decrementar(design_digital);
+        design_personagem = decrementar(design_personagem);
+        design_jogos = decrementar(design_jogos);
+        design_editorial = decrementar(design_editorial);
+
+        //adiciona ++ para perfil referente a escolha/resposta
+        console.clear()
+        var estePerfil = este.getAttribute("data-resposta");
+        switch (estePerfil) {
+            case "1":
+                web_design++;
+                break;
+            case "2":
+                web_design++;
+                design_grafico++;
+                break;
+            case "3":
+                ui_design++;
+                break;
+            case "4":
+                design_digital++;
+                break;
+            case "5":
+                design_editorial++;
+                break;
+
+            //pergunta 2
+            case "6":
+                web_design++;
+                break;
+            case "7":
+                web_design++;
+                design_grafico++;
+                break;
+            case "8":
+                ui_design++;
+                break;
+            case "9":
+                design_digital++;
+                break;
+            case "10":
+                design_editorial++;
+                break;
+
+            //pergunta 3
+            case "11":
+                web_design++;
+                break;
+            case "12":
+                web_design++;
+                design_grafico++;
+                break;
+            case "13":
+                ui_design++;
+                break;
+            case "14":
+                design_digital++;
+                break;
+            case "15":
+                design_editorial++;
+                break;
+            default:
+                alert("É nescessário escolher 1 opção!");
+        };
+        console.log(
+            "Web_design " + web_design + " - " +
+            "Design_grafico " + design_grafico + " - " +
+            "Ui_design " + ui_design + " - " +
+            "design_digital " + design_digital + " - " +
+            "design_editorial " + design_editorial);
+    });
+});
+
 
 //click no botão passar
 passar.addEventListener("click", function () {
@@ -57,9 +147,32 @@ passar.addEventListener("click", function () {
     if (numero == asPerguntas.length - 1) {
         passar.style.display = "none";
         resultado.style.display = "inline-block"
-    }
+    };
 });
 
+
+//próxima tela = esconde todas as perguntas e mostra somente uma
+function mostrarPerguntas() {
+    asPerguntas.forEach(function (asPergunta, i) {
+        asPergunta.classList.add("anime-desaparecer");
+        setTimeout(function () {
+            asPergunta.removeAttribute("style");
+            asPergunta.removeAttribute("class");
+        }, 800);
+        if (numero == i) {
+            passar.setAttribute("disabled", "disabled");
+            resultado.setAttribute("disabled", "disabled");
+            setTimeout(function () {
+                asPergunta.style.display = "block";
+                asPergunta.classList.add("anime-aparecer");
+            }, 800);
+            numPergunta.innerHTML = numero + 1 + " de " + asPerguntas.length;
+        }
+    })
+};
+
+
+//click final para mostrar o resultado
 resultado.onclick = function () {
     var array = [
         { key: 'design_marca', value: design_marca },
@@ -94,113 +207,3 @@ resultado.onclick = function () {
         }
     });
 };
-
-function decrementar(resposta) {
-    if (resposta > 0) return resposta -= 1;
-    return resposta;
-}
-
-var dataPerfilsList = document.querySelectorAll("section li");
-var dataPerfils = Array.from(dataPerfilsList);
-
-dataPerfils.forEach(dataPerfil => {
-
-    dataPerfil.addEventListener("click", function (e) {
-        passar.removeAttribute("disabled");
-        resultado.removeAttribute("disabled");
-
-        design_marca = decrementar(design_marca);
-        web_design = decrementar(web_design);
-        design_grafico = decrementar(design_grafico);
-        design_produto = decrementar(design_produto);
-        ux_design = decrementar(ux_design);
-        ui_design = decrementar(ui_design);
-        design_digital = decrementar(design_digital);
-        design_personagem = decrementar(design_personagem);
-        design_jogos = decrementar(design_jogos);
-        design_editorial = decrementar(design_editorial);
-
-        //Mostra a resposta selecionado
-        var perfilJaSelecionado = dataPerfils.filter(p => p.classList.contains("selecionado"));
-        if (perfilJaSelecionado.length > 0) {
-            perfilJaSelecionado[0].classList.remove("selecionado");
-        }
-        setTimeout(() => this.classList.add("selecionado"), 150);
-
-        var estePerfil = dataPerfil.getAttribute("data-respostaNumero");
-        switch (estePerfil) {
-            case "1":
-                console.log("web_design, ui_design");
-                web_design++;
-                ui_design++;
-                break;
-            case "2":
-                console.log("design_grafico, ui_design");
-                design_grafico++;
-                ui_design++;
-                break;
-            case "3":
-                console.log("ui_design");
-                ui_design++;
-                break;
-            case "4":
-                console.log("design_digital");
-                design_digital++;
-                break;
-            case "5":
-                console.log("design_editorial");
-                design_editorial++;
-                break;
-
-            //pergunta 2
-            case "6":
-                console.log("web_design, ui_design");
-                web_design++;
-                ui_design++;
-                break;
-            case "7":
-                console.log("design_grafico, ui_design");
-                design_grafico++;
-                ui_design++;
-                break;
-            case "8":
-                console.log("ui_design");
-                ui_design++;
-                break;
-            case "9":
-                console.log("design_digital");
-                design_digital++;
-                break;
-            case "10":
-                console.log("design_editorial");
-                design_editorial++;
-                break;
-
-            //pergunta 3
-            case "11":
-                console.log("web_design, ui_design");
-                web_design++;
-                ui_design++;
-                break;
-            case "12":
-                console.log("design_grafico, ui_design");
-                design_grafico++;
-                ui_design++;
-                break;
-            case "13":
-                console.log("ui_design");
-                ui_design++;
-                break;
-            case "14":
-                console.log("design_digital");
-                design_digital++;
-                break;
-            case "15":
-                console.log("design_editorial");
-                design_editorial++;
-                break;
-            default:
-                alert("É nescessário escolher 1 opção!");
-        }
-    });
-});
