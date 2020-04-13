@@ -8,23 +8,28 @@ var asPerguntas = document.querySelectorAll("section");
 var numPergunta = document.querySelector(".numeros-perguntas");
 var numero = 0;
 var design_marca = 0;
-var web_design = 0;
+var design_editorial = 0;
 var design_grafico = 0;
 var design_produto = 0;
-var ux_design = 0;
-var ui_design = 0;
-var design_digital = 0;
 var design_personagem = 0;
+var ux_design = 0;
+var design_digital = 0;
 var design_jogos = 0;
-var design_editorial = 0;
+var web_design = 0;
+var ui_design = 0;
 
 //somente demostrativo das pontuações das escolhas
 console.log(
-    "Web_design " + web_design + " - " +
-    "Design_grafico " + design_grafico + " - " +
-    "Ui_design " + ui_design + " - " +
-    "design_digital " + design_digital + " - " +
-    "design_editorial " + design_editorial
+    "Design_marca " + design_marca + ", " +
+    "Design_editorial " + design_editorial + ", " +
+    "Design_grafico " + design_grafico + ", " +
+    "Design_produto " + design_produto + ", " +
+    "Design_personagem " + design_personagem + ", " +
+    "Ux_design " + ux_design + ", " +
+    "Design_digital " + design_digital + ", " +
+    "Design_jogos " + design_jogos + ", " +
+    "Web_design " + web_design + ", " +
+    "Ui_design " + ui_design
 );
 
 //Click de escolha para começar
@@ -36,13 +41,6 @@ comecar.onclick = function () {
     }, 900);
     mostrarPerguntas();
 };
-
-
-//função para pegar apenas 1 click na escolha
-function decrementar(resposta) {
-    if (resposta > 0) return resposta -= 1;
-    return resposta;
-}
 
 
 //marca e desmarca a resposta selecionada
@@ -57,85 +55,258 @@ listaRespostas.forEach(function (este) {
         }
         e.target.className = "selecionado";
 
-        //Chama função para pegar apenas 1 click na escolha
-        design_marca = decrementar(design_marca);
-        web_design = decrementar(web_design);
-        design_grafico = decrementar(design_grafico);
-        design_produto = decrementar(design_produto);
-        ux_design = decrementar(ux_design);
-        ui_design = decrementar(ui_design);
-        design_digital = decrementar(design_digital);
-        design_personagem = decrementar(design_personagem);
-        design_jogos = decrementar(design_jogos);
-        design_editorial = decrementar(design_editorial);
-
-        //adiciona ++ para perfil referente a escolha/resposta
-        console.clear()
-        var estePerfil = este.getAttribute("data-resposta");
-        switch (estePerfil) {
-            case "1":
-                web_design++;
-                break;
-            case "2":
-                web_design++;
-                design_grafico++;
-                break;
-            case "3":
-                ui_design++;
-                break;
-            case "4":
-                design_digital++;
-                break;
-            case "5":
-                design_editorial++;
-                break;
-
-            //pergunta 2
-            case "6":
-                web_design++;
-                break;
-            case "7":
-                web_design++;
-                design_grafico++;
-                break;
-            case "8":
-                ui_design++;
-                break;
-            case "9":
-                design_digital++;
-                break;
-            case "10":
-                design_editorial++;
-                break;
-
-            //pergunta 3
-            case "11":
-                web_design++;
-                break;
-            case "12":
-                web_design++;
-                design_grafico++;
-                break;
-            case "13":
-                ui_design++;
-                break;
-            case "14":
-                design_digital++;
-                break;
-            case "15":
-                design_editorial++;
-                break;
-            default:
-                alert("É nescessário escolher 1 opção!");
-        };
-        console.log(
-            "Web_design " + web_design + " - " +
-            "Design_grafico " + design_grafico + " - " +
-            "Ui_design " + ui_design + " - " +
-            "design_digital " + design_digital + " - " +
-            "design_editorial " + design_editorial);
     });
 });
+
+
+//adiciona ++ para perfil referente a escolha/resposta
+function CalcularRespostas() {
+    var elems = document.querySelector(".selecionado");
+    console.clear()
+    var estePerfil = elems.getAttribute("data-resposta");
+    switch (estePerfil) {
+        case "1"://Ler livros/quadrinhos
+            design_marca++;
+            design_editorial += 2;
+            design_grafico++;
+            ux_design++;
+            break;
+        case "2"://Desenhar
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            design_produto++;
+            design_personagem++;
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design++;
+            break;
+        case "3"://Assistir filmes/serie
+            ux_design++;
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design++;
+            break;
+        case "4"://Jogar vídeo games
+            design_digital++;
+            design_jogos += 2;
+            web_design++;
+            ui_design++;
+            break;
+        case "5"://Dormir
+            break;
+
+        //PERGUNTA 2
+        case "6"://A mão livre
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            design_produto++;
+            design_personagem++;
+            break;
+        case "7"://Desenho digital
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            design_produto++;
+            design_personagem += 2;
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design++;
+            break;
+        case "8"://Desenho vetorial
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            design_produto++;
+            design_personagem++;
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design++;
+            break;
+        case "9"://Em telas de pintura
+            design_produto++;
+            design_personagem++;
+            break;
+        case "10"://Nenhuma das opções acima
+            break;
+
+        //PERGUNTA 3
+        case "11"://Photoshop
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design++;
+            break;
+        case "12"://Illustrator
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            design_produto++;
+            design_personagem++;
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design++;
+            break;
+        case "13"://Adobe XD
+            ux_design++;
+            web_design++;
+            ui_design++;
+            break;
+        case "14"://inDesign
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            break;
+        case "15"://Nenhuma das opções acima
+            break;
+
+        //PERGUNTA 4
+        case "16"://
+            web_design++;
+            break;
+        case "17"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "18"://
+            ui_design++;
+            break;
+        case "19"://
+            design_digital++;
+            break;
+        case "20"://
+            design_editorial++;
+            break;
+
+        //PERGUNTA 5
+        case "21"://
+            web_design++;
+            break;
+        case "22"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "23"://
+            ui_design++;
+            break;
+        case "24"://
+            design_digital++;
+            break;
+        case "25"://
+            design_editorial++;
+            break;
+
+        //PERGUNTA 6
+        case "26"://
+            web_design++;
+            break;
+        case "27"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "28"://
+            ui_design++;
+            break;
+        case "29"://
+            design_digital++;
+            break;
+        case "30"://
+            design_editorial++;
+            break;
+
+        //PERGUNTA 7
+        case "31"://
+            web_design++;
+            break;
+        case "32"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "33"://
+            ui_design++;
+            break;
+        case "34"://
+            design_digital++;
+            break;
+        case "35"://
+            design_editorial++;
+            break;
+
+        //PERGUNTA 8
+        case "36"://
+            web_design++;
+            break;
+        case "37"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "38"://
+            ui_design++;
+            break;
+        case "39"://
+            design_digital++;
+            break;
+        case "40"://
+            design_editorial++;
+            break;
+
+        //PERGUNTA 9
+        case "41"://
+            web_design++;
+            break;
+        case "42"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "43"://
+            ui_design++;
+            break;
+        case "44"://
+            design_digital++;
+            break;
+        case "45"://
+            design_editorial++;
+            break;
+
+        //PERGUNTA 10
+        case "46"://
+            web_design++;
+            break;
+        case "47"://
+            web_design++;
+            design_grafico++;
+            break;
+        case "48"://
+            ui_design++;
+            break;
+        case "49"://
+            design_digital++;
+            break;
+        case "50"://
+            design_editorial++;
+            break;
+        default:
+            alert("É nescessário escolher 1 opção!");
+    };
+    console.log(
+        "Design_marca " + design_marca + ", " +
+        "Design_editorial " + design_editorial + ", " +
+        "Design_grafico " + design_grafico + ", " +
+        "Design_produto " + design_produto + ", " +
+        "Design_personagem " + design_personagem + ", " +
+        "Ux_design " + ux_design + ", " +
+        "Design_digital " + design_digital + ", " +
+        "Design_jogos " + design_jogos + ", " +
+        "Web_design " + web_design + ", " +
+        "Ui_design " + ui_design
+    );
+};
 
 
 //click no botão passar
@@ -144,6 +315,7 @@ passar.addEventListener("click", function () {
     if (numero > asPerguntas.length - 1)
         numero = asPerguntas.length - 1;
     mostrarPerguntas();
+    CalcularRespostas();
     if (numero == asPerguntas.length - 1) {
         passar.style.display = "none";
         resultado.style.display = "inline-block"
@@ -174,6 +346,7 @@ function mostrarPerguntas() {
 
 //click final para mostrar o resultado
 resultado.onclick = function () {
+    CalcularRespostas();
     var array = [
         { key: 'design_marca', value: design_marca },
         { key: 'web_design', value: web_design },
