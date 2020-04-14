@@ -69,17 +69,16 @@ function CalcularRespostas() {
             design_marca++;
             design_editorial += 2;
             design_grafico++;
+            design_personagem++;
             ux_design++;
             break;
         case "2"://Desenhar
             design_marca++;
-            design_editorial++;
             design_grafico++;
             design_produto++;
             design_personagem++;
             design_digital++;
             design_jogos++;
-            web_design++;
             ui_design++;
             break;
         case "3"://Assistir filmes/serie
@@ -93,7 +92,6 @@ function CalcularRespostas() {
             design_digital++;
             design_jogos += 2;
             web_design++;
-            ui_design++;
             break;
         case "5"://Dormir
             break;
@@ -101,34 +99,31 @@ function CalcularRespostas() {
         //PERGUNTA 2
         case "6"://A mão livre
             design_marca++;
-            design_editorial++;
             design_grafico++;
             design_produto++;
             design_personagem++;
             break;
         case "7"://Desenho digital
             design_marca++;
-            design_editorial++;
             design_grafico++;
             design_produto++;
             design_personagem += 2;
             design_digital++;
             design_jogos++;
-            web_design++;
             ui_design++;
+            web_design++;
             break;
         case "8"://Desenho vetorial
             design_marca++;
-            design_editorial++;
             design_grafico++;
             design_produto++;
             design_personagem++;
             design_digital++;
             design_jogos++;
-            web_design++;
             ui_design++;
             break;
         case "9"://Em telas de pintura
+            design_grafico++;
             design_produto++;
             design_personagem++;
             break;
@@ -150,146 +145,195 @@ function CalcularRespostas() {
             design_personagem++;
             design_digital++;
             design_jogos++;
-            web_design++;
             ui_design++;
             break;
         case "13"://Adobe XD
-            ux_design++;
+            ux_design += 2;
             web_design++;
             ui_design++;
             break;
         case "14"://inDesign
-            design_marca++;
-            design_editorial++;
+            design_editorial += 2;
             design_grafico++;
             break;
         case "15"://Nenhuma das opções acima
             break;
 
         //PERGUNTA 4
-        case "16"://
-            web_design++;
+        case "16"://Gerenciar o projeto
+            ux_design++;
             break;
-        case "17"://
-            web_design++;
-            design_grafico++;
-            break;
-        case "18"://
-            ui_design++;
-            break;
-        case "19"://
-            design_digital++;
-            break;
-        case "20"://
+        case "17"://Participar de reúniões
+            ux_design++;
             design_editorial++;
+            break;
+        case "18"://Fazer entrevistas
+            ux_design += 2;
+            break;
+        case "19"://Fazer pesquisas
+            design_produto++;
+            ux_design++;
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            break;
+        case "20"://Nenhuma das opções acima
             break;
 
         //PERGUNTA 5
-        case "21"://
+        case "21"://Digital
+            design_digital += 2;
+            design_jogos++;
             web_design++;
-            break;
-        case "22"://
-            web_design++;
-            design_grafico++;
-            break;
-        case "23"://
             ui_design++;
             break;
-        case "24"://
-            design_digital++;
-            break;
-        case "25"://
+        case "22"://Impresso
+            design_marca++;
             design_editorial++;
+            design_grafico += 2;
+            break;
+        case "23"://Internet
+            web_design += 2;
+            break;
+        case "24"://Produto físico
+            design_produto += 2;
+            break;
+        case "25"://Conceitual
+            design_marca += 2;
+            ui_design++;
             break;
 
         //PERGUNTA 6
-        case "26"://
+        case "26"://Programação
+            design_digital++;
+            design_jogos++;
             web_design++;
             break;
-        case "27"://
-            web_design++;
-            design_grafico++;
+        case "27"://Engenharia em geral
+            design_produto++;
+            design_personagem++;
             break;
-        case "28"://
+        case "28"://Administração
+            design_editorial++;
+            ux_design++;
             ui_design++;
             break;
-        case "29"://
-            design_digital++;
+        case "29"://Saúde
+            ux_design++;
             break;
-        case "30"://
-            design_editorial++;
+        case "30"://Nenhuma das opções acima
             break;
 
         //PERGUNTA 7
-        case "31"://
+        case "31"://Matemática
+            design_jogos++;
             web_design++;
             break;
-        case "32"://
-            web_design++;
-            design_grafico++;
+        case "32"://Ciências
+            design_produto++;
+            design_personagem++;
+            ux_design++;
             break;
-        case "33"://
-            ui_design++;
-            break;
-        case "34"://
-            design_digital++;
-            break;
-        case "35"://
+        case "33"://Português
+            design_marca++;
             design_editorial++;
+            design_grafico++;
+            ux_design++;
+            break;
+        case "34"://História
+            design_marca++;
+            design_produto++;
+            design_personagem++;
+            ux_design++;
+            break;
+        case "35"://Artes
+            design_marca++;
+            design_grafico++;
+            design_produto++;
+            design_personagem++;
+            design_jogos++;
+            ui_design++;
             break;
 
         //PERGUNTA 8
-        case "36"://
-            web_design++;
-            break;
-        case "37"://
-            web_design++;
-            design_grafico++;
-            break;
-        case "38"://
-            ui_design++;
-            break;
-        case "39"://
-            design_digital++;
-            break;
-        case "40"://
+        case "36"://Esforçado
             design_editorial++;
+            design_produto++;
+            design_personagem++;
+            ux_design++;
+            break;
+        case "37"://Lógico
+            design_digital++;
+            design_jogos++;
+            web_design++;
+            break;
+        case "38"://Curioso
+            design_produto++;
+            design_personagem++;
+            ux_design++;
+            design_jogos++;
+            break;
+        case "39"://Paciente
+            design_marca++;
+            design_editorial++;
+            design_grafico++;
+            design_produto++;
+            design_personagem++;
+            ux_design++;
+            break;
+        case "40"://Adaptativo
+            design_produto++;
+            design_personagem++;
+            ux_design++;
             break;
 
         //PERGUNTA 9
-        case "41"://
-            web_design++;
-            break;
-        case "42"://
-            web_design++;
+        case "41"://Comunicação
+            design_marca++;
+            design_editorial++;
             design_grafico++;
+            ux_design++;
             break;
-        case "43"://
-            ui_design++;
+        case "42"://Ensino
+            ux_design++;
+            design_digital++;
+            design_jogos++;
+            web_design++;
             break;
-        case "44"://
+        case "43"://Liderança
+            ux_design++;
             design_digital++;
             break;
-        case "45"://
-            design_editorial++;
+        case "44"://Estrategia
+            ux_design++;
+            design_digital++;
+            design_jogos++;
+            break;
+        case "45"://Administração
+            ux_design++;
+            ui_design++;
             break;
 
         //PERGUNTA 10
-        case "46"://
-            web_design++;
+        case "46"://Portugal
             break;
-        case "47"://
-            web_design++;
-            design_grafico++;
-            break;
-        case "48"://
-            ui_design++;
-            break;
-        case "49"://
+        case "47"://Japão
             design_digital++;
+            design_jogos++;
+            web_design++;
+            ui_design += 2;
             break;
-        case "50"://
+        case "48"://China
+            design_marca++;
+            design_produto++;
+            design_personagem++;
+            break;
+        case "49"://Itália
             design_editorial++;
+            design_grafico++;
+            ux_design++;
+            break;
+        case "50"://Nenhuma das opções acima
             break;
         default:
             alert("É nescessário escolher 1 opção!");
