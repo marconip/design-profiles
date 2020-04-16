@@ -75,7 +75,7 @@ function CalcularRespostas() {
             break;
         case "3"://Total liberdade em desenvolver ou criar algo
             design_produto++;
-            ui_design += 2;
+            ui_design++;
             break;
         case "4"://Ambiente agradável, onde eu me sinta a avontade
             ux_design++;
@@ -88,9 +88,7 @@ function CalcularRespostas() {
 
         //PERGUNTA 2
         case "6"://Ler livros/quadrinhos
-            design_editorial += 2;
-            design_grafico++;
-            design_personagem++;
+            design_editorial += 3;
             ux_design++;
             break;
         case "7"://Desenhar
@@ -100,48 +98,40 @@ function CalcularRespostas() {
             design_personagem++;
             ui_design++;
             break;
-        case "8"://Assistir filmes/serie
-            ux_design++;
+        case "8"://Assistir filmes/serie            
             design_digital++;
             web_design++;
-            ui_design++;
             break;
         case "9"://Jogar vídeo games
-            design_digital++;
-            design_jogos += 2;
-            web_design++;
+            design_personagem++;
+            design_jogos += 3;
             break;
         case "10"://Dormir
             break;
 
         //PERGUNTA 3
         case "11"://A mão livre
-            design_marca++;
             design_grafico++;
             design_produto++;
             design_personagem++;
+            web_design++;
             break;
         case "12"://Desenho digital
-            design_grafico++;
             design_produto++;
-            design_personagem += 2;
+            design_personagem += 3;
             design_digital++;
-            ui_design++;
-            web_design++;
+            design_jogos++;
             break;
         case "13"://Desenho vetorial
             design_marca++;
             design_grafico++;
-            design_produto++;
-            design_digital++;
-            design_jogos++;
             ui_design++;
             break;
         case "14"://Em telas de pintura
-            design_grafico++;
-            design_personagem++;
             break;
         case "15"://Nenhuma das opções acima
+            design_editorial++;
+            ux_design++;
             break;
 
         //PERGUNTA 4
@@ -150,24 +140,21 @@ function CalcularRespostas() {
             design_jogos++;
             design_produto++;
             web_design++;
-            ui_design++;
             break;
         case "17"://Illustrator
             design_marca++;
-            design_editorial++;
             design_grafico++;
             design_personagem++;
             design_digital++;
             ui_design++;
             break;
         case "18"://Adobe XD
-            ux_design += 2;
+            ux_design += 3;
             web_design++;
-            ui_design++;
+            ui_design += 3;
             break;
         case "19"://inDesign
-            design_editorial += 2;
-            design_grafico++;
+            design_editorial += 3;
             break;
         case "20"://Nenhuma das opções acima
             break;
@@ -175,15 +162,14 @@ function CalcularRespostas() {
         //PERGUNTA 5
         case "21"://Livros
             design_editorial++;
-            ux_design++;
+            ux_design += 3;
             break;
         case "22"://Quadrinhos
             design_grafico++;
             design_marca++;
             break;
         case "23"://Jogos de video game
-            design_jogos++;
-            ui_design++;
+            design_jogos += 3;
             break;
         case "24"://Action figure
             design_personagem++;
@@ -195,27 +181,26 @@ function CalcularRespostas() {
             break;
 
         //PERGUNTA 6
-        case "26"://Digital
-            design_digital += 2;
-            design_jogos++;
+        case "26"://Digital em geral
+            design_digital += 3;
             web_design++;
             ui_design++;
             break;
         case "27"://Impresso
             design_marca++;
             design_editorial++;
-            design_grafico += 2;
+            design_grafico += 3;
             design_personagem++;
             break;
         case "28"://Internet
-            web_design += 2;
+            web_design += 3;
             break;
         case "29"://Produto físico
-            design_produto += 2;
+            design_produto += 3;
             break;
         case "30"://Conceitual
-            design_marca += 2;
-            ui_design++;
+            design_marca += 3;
+            ui_design += 3;
             break;
 
         //PERGUNTA 7
@@ -237,6 +222,7 @@ function CalcularRespostas() {
             ux_design++;
             break;
         case "35"://Nenhuma das opções acima
+            design_grafico++;
             break;
 
         //PERGUNTA 8
@@ -248,7 +234,6 @@ function CalcularRespostas() {
             design_produto++;
             break;
         case "38"://Português
-            design_marca++;
             design_editorial++;
             design_grafico++;
             ux_design++;
@@ -262,19 +247,16 @@ function CalcularRespostas() {
         case "40"://Artes
             design_marca++;
             design_grafico++;
-            design_produto++;
-            design_personagem++;
             design_jogos++;
+            web_design++;
             ui_design++;
             break;
 
         //PERGUNTA 9
         case "41"://Esforçado
             design_editorial++;
-            design_personagem++;
             break;
-        case "42"://Lógico
-            design_digital++;
+        case "42"://Lógico           
             design_jogos++;
             web_design++;
             break;
@@ -285,16 +267,14 @@ function CalcularRespostas() {
             break;
         case "44"://Paciente
             design_marca++;
-            design_editorial++;
             design_grafico++;
-            design_produto++;
             design_personagem++;
-            ux_design++;
             break;
         case "45"://Adaptativo
             design_produto++;
             design_personagem++;
             ux_design++;
+            design_digital++;
             ui_design++;
             break;
 
@@ -303,20 +283,16 @@ function CalcularRespostas() {
             design_marca++;
             design_editorial++;
             design_grafico++;
-            ux_design++;
             break;
         case "47"://Ensino
             design_digital++;
-            design_jogos++;
             web_design++;
             break;
         case "48"://Liderança
-            ux_design++;
             design_digital++;
             break;
         case "49"://Estrategia
             ux_design++;
-            design_digital++;
             design_jogos++;
             break;
         case "50"://Administração
