@@ -6,6 +6,7 @@ var comecar = document.querySelector(".btn-nao-deisgn");
 var inicio = document.querySelector(".inicio");;
 var asPerguntas = document.querySelectorAll("section");
 var numPergunta = document.querySelector(".numeros-perguntas");
+var pergTempo = document.querySelector(".nu-perg-tempo");
 var numero = 0;
 var design_marca = 0;
 var design_editorial = 0;
@@ -34,11 +35,8 @@ console.log(
 
 //Click de escolha para começar
 comecar.onclick = function () {
-    inicio.classList.add("anime-desaparecer");
-    setTimeout(function () {
-        inicio.style.display = "none";
-        document.querySelector(".controller").style.display = "flex";
-    }, 900);
+    inicio.style.display = "none";
+    document.querySelector(".controller").style.display = "flex";
     mostrarPerguntas();
 };
 
@@ -58,9 +56,8 @@ listaRespostas.forEach(function (este) {
     });
 });
 
-
 //adiciona ++ para perfil referente a escolha/resposta
-function CalcularRespostas() {
+function calcularRespostas() {
     var elems = document.querySelector(".selecionado");
     console.clear()
     var estePerfil = elems.getAttribute("data-resposta");
@@ -323,7 +320,7 @@ passar.addEventListener("click", function () {
     if (numero > asPerguntas.length - 1)
         numero = asPerguntas.length - 1;
     mostrarPerguntas();
-    CalcularRespostas();
+    calcularRespostas();
     if (numero == asPerguntas.length - 1) {
         passar.style.display = "none";
         resultado.style.display = "inline-block"
@@ -334,19 +331,35 @@ passar.addEventListener("click", function () {
 //próxima tela = esconde todas as perguntas e mostra somente uma
 function mostrarPerguntas() {
     asPerguntas.forEach(function (asPergunta, i) {
-        asPergunta.classList.add("anime-desaparecer");
-        setTimeout(function () {
-            asPergunta.removeAttribute("style");
-            asPergunta.removeAttribute("class");
-        }, 800);
+        pergTempo.classList.remove("tempo02", "tempo03", "tempo04", "tempo05", "tempo06", "tempo07", "tempo08");
+        asPergunta.removeAttribute("style");
+        asPergunta.removeAttribute("class");
         if (numero == i) {
             passar.setAttribute("disabled", "disabled");
             resultado.setAttribute("disabled", "disabled");
-            setTimeout(function () {
-                asPergunta.style.display = "block";
-                asPergunta.classList.add("anime-aparecer");
-            }, 800);
+
+            asPergunta.style.display = "block";
+            asPergunta.classList.add("anime-entrarDireita");
             numPergunta.innerHTML = numero + 1 + " de " + asPerguntas.length;
+        }
+        if (numero == 1) {
+            pergTempo.classList.add("tempo02");
+        } else if (numero == 2) {
+            pergTempo.classList.add("tempo03");
+        } else if (numero == 3) {
+            pergTempo.classList.add("tempo04");
+        } else if (numero == 4) {
+            pergTempo.classList.add("tempo05");//metade
+        } else if (numero == 5) {
+            pergTempo.classList.add("tempo06");
+        } else if (numero == 6) {
+            pergTempo.classList.add("tempo07");
+        } else if (numero == 7) {
+            pergTempo.classList.add("tempo08");
+        } else if (numero == 8) {
+            pergTempo.classList.add("tempo09");
+        } else if (numero == 9) {
+            pergTempo.classList.add("tempo10");
         }
     })
 };
@@ -354,7 +367,7 @@ function mostrarPerguntas() {
 
 //click final para mostrar o resultado
 resultado.onclick = function () {
-    CalcularRespostas();
+    calcularRespostas();
     var array = [
         { key: 'design_marca', value: design_marca },
         { key: 'web_design', value: web_design },
@@ -374,17 +387,14 @@ resultado.onclick = function () {
     var perfil = document.querySelectorAll("article");
     perfil.forEach(function (el) {
         if (el.className === resultadoPerfil) {
-            document.querySelector(".anime-aparecer").classList.add("anime-desaparecer");
-            setTimeout(function () {
-                document.querySelector(".anime-aparecer").style.display = "none";
-            }, 800);
-            setTimeout(function () {
-                el.classList.add("anime-aparecer");
-                el.style.display = "block";
-            }, 800);
+            document.querySelector(".anime-entrarDireita").style.display = "none";
+
+            el.classList.add("anime-entrarDireita");
+            el.style.display = "block";
+            reiniciar.style.display = "inline-block"
+
             numPergunta.parentElement.style.display = "none";
             resultado.style.display = "none";
-            reiniciar.style.display = "inline-block"
         }
     });
 };

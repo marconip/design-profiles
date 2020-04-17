@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <h1>Descubra qual é o seu perfil de design</h1>
     <main>
         <div class="inicio">
-            <h3>Clique no botão abaixo para iniciar as questões
-            </h3>
-            <div>
+            <h1>Descubra qual é o seu perfil de design</h1>
+            <div class="image"></div>
+            <p>Clique no botão abaixo para iniciar as questões</p>
+            <div class="box-btn">
                 <button type="button" class="btn-nao-deisgn">INICIAR</button>
                 <!-- <button type="button" class="btn-design">Já sou design</button> -->
             </div>
@@ -69,7 +69,6 @@
                 <li data-resposta="20"> <span>5</span> Nenhuma das opções acima</li>
             </ul>
         </section>
-
         <section>
             <div class="image"></div>
             <h2>5º O que de mais encontramos em seus pertences?</h2>
@@ -141,7 +140,6 @@
                 <li data-resposta="50"> <span>5</span> Administração</li>
             </ul>
         </section>
-
 
 
         <!-- RESULTADO -->
@@ -323,10 +321,12 @@
     </main>
 
     <div class="controller">
-        <p>
-            <strong class="numeros-perguntas">01</strong>
-        </p>
-        <div>
+        <div class="tempo">
+            <div class="numeros-perguntas">
+            </div>
+            <div class="nu-perg-tempo"></div>
+        </div>
+        <div class="box02-btn">
             <button type="button" class="btn-proximo">Próximo</button>
             <button type="button" class="btn-resultado">Ver resultado</button>
             <button type="button" class="btn-reiniciar" onclick="location.reload()">Reiniciar</button>
