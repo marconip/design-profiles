@@ -40,7 +40,6 @@ comecar.onclick = function () {
     mostrarPerguntas();
 };
 
-
 //marca e desmarca a resposta selecionada
 var listaRespostas = document.querySelectorAll("section li");
 listaRespostas.forEach(function (este) {
@@ -55,6 +54,75 @@ listaRespostas.forEach(function (este) {
 
     });
 });
+
+//click no botão passar
+passar.addEventListener("click", function () {
+    numero++;
+    if (numero > asPerguntas.length - 1)
+        numero = asPerguntas.length - 1;
+    mostrarPerguntas();
+    calcularRespostas();
+    if (numero == asPerguntas.length - 1) {
+        passar.style.display = "none";
+        resultado.style.display = "inline-block"
+    };
+});
+
+//próxima tela = esconde todas as perguntas e mostra somente uma
+function mostrarPerguntas() {
+    asPerguntas.forEach(function (asPergunta, i) {
+        asPergunta.removeAttribute("style");
+        asPergunta.removeAttribute("class");
+        if (numero == i) {
+            passar.setAttribute("disabled", "disabled");
+            resultado.setAttribute("disabled", "disabled");
+
+            asPergunta.classList.add("anime-entrarDireita");
+            asPergunta.style.display = "block";
+            numPergunta.innerHTML = numero + 1 + " de " + asPerguntas.length;
+        };
+        if (numero >= 1) {
+            pergTempo.style.width = numero + 1 + "0%";
+        }
+        if (numero >= 6) {
+            pergTempo.classList.add("tempo-verde");
+        }
+    })
+};
+
+//click final para mostrar o resultado
+resultado.onclick = function () {
+    calcularRespostas();
+    var array = [
+        { key: 'design_marca', value: design_marca },
+        { key: 'web_design', value: web_design },
+        { key: 'design_grafico', value: design_grafico },
+        { key: 'design_produto', value: design_produto },
+        { key: 'ux_design', value: ux_design },
+        { key: 'ui_design', value: ui_design },
+        { key: 'design_digital', value: design_digital },
+        { key: 'design_personagem', value: design_personagem },
+        { key: 'design_jogos', value: design_jogos },
+        { key: 'design_editorial', value: design_editorial }
+    ];
+
+    var arrayOrdenado = array.sort((a, b) => b.value - a.value);
+    resultadoPerfil = arrayOrdenado[0].key;
+
+    var perfil = document.querySelectorAll("article");
+    perfil.forEach(function (el) {
+        if (el.className === resultadoPerfil) {
+            document.querySelector(".anime-entrarDireita").style.display = "none";
+
+            el.classList.add("anime-entrarDireita");
+            el.style.display = "block";
+            reiniciar.style.display = "inline-block"
+
+            numPergunta.parentElement.style.display = "none";
+            resultado.style.display = "none";
+        }
+    });
+};
 
 //adiciona ++ para perfil referente a escolha/resposta
 function calcularRespostas() {
@@ -111,7 +179,6 @@ function calcularRespostas() {
             design_grafico++;
             design_produto++;
             design_personagem++;
-            web_design++;
             break;
         case "12"://Desenho digital
             design_produto++;
@@ -184,10 +251,8 @@ function calcularRespostas() {
             ui_design++;
             break;
         case "27"://Impresso
-            design_marca++;
             design_editorial++;
             design_grafico += 3;
-            design_personagem++;
             break;
         case "28"://Internet
             web_design += 3;
@@ -197,6 +262,7 @@ function calcularRespostas() {
             break;
         case "30"://Conceitual
             design_marca += 3;
+            design_personagem++;
             ui_design += 3;
             break;
 
@@ -208,18 +274,19 @@ function calcularRespostas() {
             break;
         case "32"://Engenharia em geral
             design_produto++;
-            design_personagem++;
             break;
         case "33"://Administração
             design_editorial++;
             ux_design++;
-            ui_design++;
             break;
         case "34"://Saúde
             ux_design++;
             break;
         case "35"://Nenhuma das opções acima
+            design_marca++;
             design_grafico++;
+            design_personagem++;
+            ui_design++;
             break;
 
         //PERGUNTA 8
@@ -232,20 +299,16 @@ function calcularRespostas() {
             break;
         case "38"://Português
             design_editorial++;
-            design_grafico++;
             ux_design++;
             break;
         case "39"://História
             design_marca++;
-            design_produto++;
             design_personagem++;
-            ux_design++;
             break;
         case "40"://Artes
             design_marca++;
             design_grafico++;
-            design_jogos++;
-            web_design++;
+            design_personagem++;
             ui_design++;
             break;
 
@@ -269,7 +332,6 @@ function calcularRespostas() {
             break;
         case "45"://Adaptativo
             design_produto++;
-            design_personagem++;
             ux_design++;
             design_digital++;
             ui_design++;
@@ -280,6 +342,7 @@ function calcularRespostas() {
             design_marca++;
             design_editorial++;
             design_grafico++;
+            ux_design++;
             break;
         case "47"://Ensino
             design_digital++;
@@ -289,11 +352,10 @@ function calcularRespostas() {
             design_digital++;
             break;
         case "49"://Estrategia
-            ux_design++;
             design_jogos++;
             break;
         case "50"://Administração
-            ux_design++;
+            design_editorial++;
             ui_design++;
             break;
         default:
@@ -313,88 +375,3 @@ function calcularRespostas() {
     );
 };
 
-
-//click no botão passar
-passar.addEventListener("click", function () {
-    numero++;
-    if (numero > asPerguntas.length - 1)
-        numero = asPerguntas.length - 1;
-    mostrarPerguntas();
-    calcularRespostas();
-    if (numero == asPerguntas.length - 1) {
-        passar.style.display = "none";
-        resultado.style.display = "inline-block"
-    };
-});
-
-
-//próxima tela = esconde todas as perguntas e mostra somente uma
-function mostrarPerguntas() {
-    asPerguntas.forEach(function (asPergunta, i) {
-        pergTempo.classList.remove("tempo02", "tempo03", "tempo04", "tempo05", "tempo06", "tempo07", "tempo08");
-        asPergunta.removeAttribute("style");
-        asPergunta.removeAttribute("class");
-        if (numero == i) {
-            passar.setAttribute("disabled", "disabled");
-            resultado.setAttribute("disabled", "disabled");
-
-            asPergunta.style.display = "block";
-            asPergunta.classList.add("anime-entrarDireita");
-            numPergunta.innerHTML = numero + 1 + " de " + asPerguntas.length;
-        }
-        if (numero == 1) {
-            pergTempo.classList.add("tempo02");
-        } else if (numero == 2) {
-            pergTempo.classList.add("tempo03");
-        } else if (numero == 3) {
-            pergTempo.classList.add("tempo04");
-        } else if (numero == 4) {
-            pergTempo.classList.add("tempo05");//metade
-        } else if (numero == 5) {
-            pergTempo.classList.add("tempo06");
-        } else if (numero == 6) {
-            pergTempo.classList.add("tempo07");
-        } else if (numero == 7) {
-            pergTempo.classList.add("tempo08");
-        } else if (numero == 8) {
-            pergTempo.classList.add("tempo09");
-        } else if (numero == 9) {
-            pergTempo.classList.add("tempo10");
-        }
-    })
-};
-
-
-//click final para mostrar o resultado
-resultado.onclick = function () {
-    calcularRespostas();
-    var array = [
-        { key: 'design_marca', value: design_marca },
-        { key: 'web_design', value: web_design },
-        { key: 'design_grafico', value: design_grafico },
-        { key: 'design_produto', value: design_produto },
-        { key: 'ux_design', value: ux_design },
-        { key: 'ui_design', value: ui_design },
-        { key: 'design_digital', value: design_digital },
-        { key: 'design_personagem', value: design_personagem },
-        { key: 'design_jogos', value: design_jogos },
-        { key: 'design_editorial', value: design_editorial }
-    ];
-
-    var arrayOrdenado = array.sort((a, b) => b.value - a.value);
-    resultadoPerfil = arrayOrdenado[0].key;
-
-    var perfil = document.querySelectorAll("article");
-    perfil.forEach(function (el) {
-        if (el.className === resultadoPerfil) {
-            document.querySelector(".anime-entrarDireita").style.display = "none";
-
-            el.classList.add("anime-entrarDireita");
-            el.style.display = "block";
-            reiniciar.style.display = "inline-block"
-
-            numPergunta.parentElement.style.display = "none";
-            resultado.style.display = "none";
-        }
-    });
-};

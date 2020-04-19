@@ -12,24 +12,34 @@ body {
 h1 {
     text-align: center;
     font-weight: 700;
+    line-height: 1.1;
     margin: 0 0 10px 0;
 }
 
 h2 {
     text-align: center;
     font-weight: 800;
+    line-height: 1.1;
     margin: 20px 0px;
 }
-
 
 p {
     font-size: 1.2rem;
     font-weight: 600;
 }
 
+.Designers {
+    display: flex;
+}
+
+.Designers span {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
 main {
-    min-height: 545px;
-    transition: .20s;
+    min-height: 600px;
 }
 
 .inicio {
@@ -40,6 +50,7 @@ main {
     border: 2px solid #d4d4d4;
     border-radius: 10px;
     padding: 15px;
+    animation: 2s ease 0s 1 anime-aparecer;
 }
 
 section,
@@ -69,7 +80,7 @@ section li {
     box-shadow: 0px 4px 0px #d4d4d4;
     border: 2px solid #d4d4d4;
     border-radius: 10px;
-    margin: 10px 0px;
+    margin: 15px 0px;
     cursor: pointer;
     transition: .20s;
 }
@@ -104,7 +115,7 @@ section li.selecionado span {
     background-color: #fff;
 }
 
-span {
+li span {
     margin-right: 10px;
     padding: 4px 10px;
     border: 2px solid #d4d4d4;
@@ -112,6 +123,7 @@ span {
 }
 
 article h2 {
+    line-height: 1.1;
     color: #444;
     margin-bottom: 0px;
 }
@@ -120,6 +132,7 @@ article h3 {
     text-align: center;
     font-size: 60px;
     font-weight: 400;
+    line-height: 1.1;
     color: #00BCD4;
     margin: 0;
 }
@@ -140,7 +153,47 @@ article li {
     background-size: cover;
 }
 
-article .image {
+.inicio .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.design_marca .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.web_design .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.design_grafico .image {
+    background-image: url("../img/grafico.jpg");
+}
+
+.design_produto .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.ux_design .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.ui_design .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.design_digital .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.design_personagem .image {
+    background-image: url("../img/designer.jpg");
+}
+
+.design_jogos .image {
+    background-image: url("../img/jogos.jpg");
+}
+
+.design_editorial .image {
     background-image: url("../img/designer.jpg");
 }
 
@@ -179,43 +232,7 @@ img {
     transition: 1s;
 }
 
-.nu-perg-tempo.tempo02 {
-    width: 5%;
-}
-
-.nu-perg-tempo.tempo03 {
-    width: 20%;
-}
-
-.nu-perg-tempo.tempo04 {
-    width: 35%;
-}
-
-.nu-perg-tempo.tempo05 {
-    width: 50%;
-}
-
-.nu-perg-tempo.tempo06 {
-    width: 65%;
-}
-
-.nu-perg-tempo.tempo07 {
-    width: 75%;
-    background-color: #78c800;
-}
-
-.nu-perg-tempo.tempo08 {
-    width: 85%;
-    background-color: #78c800;
-}
-
-.nu-perg-tempo.tempo09 {
-    width: 95%;
-    background-color: #78c800;
-}
-
-.nu-perg-tempo.tempo10 {
-    width: 100%;
+.nu-perg-tempo.tempo-verde {
     background-color: #78c800;
 }
 
@@ -350,6 +367,9 @@ button:active {
 /* /////////////////////////////// media query */
 
 @media (max-width: 767px) {
+    .Designers {
+        font-size: 0.9rem;
+    }
 
     .box-btn,
     .box02-btn {
