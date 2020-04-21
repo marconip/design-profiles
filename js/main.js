@@ -7,6 +7,7 @@ var inicio = document.querySelector(".inicio");;
 var asPerguntas = document.querySelectorAll("section");
 var numPergunta = document.querySelector(".numeros-perguntas");
 var pergTempo = document.querySelector(".nu-perg-tempo");
+var controles = document.querySelector(".controller");
 var numero = 0;
 var design_marca = 0;
 var design_editorial = 0;
@@ -36,7 +37,7 @@ console.log(
 //Click de escolha para começar
 comecar.onclick = function () {
     inicio.style.display = "none";
-    document.querySelector(".controller").style.display = "flex";
+    controles.style.display = "flex";
     mostrarPerguntas();
 };
 
@@ -115,8 +116,8 @@ resultado.onclick = function () {
 
             el.classList.add("anime-entrarDireita");
             el.style.display = "block";
+            controles.classList.add("reiniciar");
             reiniciar.style.display = "inline-block"
-
             numPergunta.parentElement.style.display = "none";
             resultado.style.display = "none";
         }

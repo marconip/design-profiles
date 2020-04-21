@@ -12,6 +12,7 @@ body {
 h1 {
     text-align: center;
     font-weight: 700;
+    color: #00BCD4;
     line-height: 1.1;
     margin: 0 0 10px 0;
 }
@@ -36,10 +37,6 @@ p {
     display: flex;
     flex-direction: column;
     width: 49%;
-}
-
-main {
-    min-height: 600px;
 }
 
 .inicio {
@@ -204,6 +201,7 @@ img {
 .controller {
     display: none;
     justify-content: space-between;
+    width: 96%;
     max-width: 718px;
     min-height: 60px;
     align-items: center;
@@ -211,7 +209,6 @@ img {
     border-radius: 5px;
     margin: 15px auto 15px auto;
 }
-
 
 .tempo {
     width: 100%;
@@ -368,8 +365,50 @@ button:active {
 /* /////////////////////////////// media query */
 
 @media (max-width: 767px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
     .Designers {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .inicio,
+    section,
+    article {
+        width: 96%;
+        padding: 0px;
+        border: 0px;
+    }
+
+    section li,
+    article li {
+        font-size: 1rem;
+    }
+
+    .image {
+        height: 120px;
+    }
+
+    section .image {
+        display: none;
+    }
+
+    article h3 {
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+    .tempo {
+        width: 92%;
     }
 
     .box-btn,
@@ -379,6 +418,15 @@ button:active {
 
     .controller {
         flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .controller.reiniciar {
+        position: inherit;
+        transform: none;
     }
 
     .tempo {
