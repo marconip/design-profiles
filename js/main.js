@@ -19,7 +19,7 @@ var design_jogos = 0;
 var web_design = 0;
 var ui_design = 0;
 
-//somente demostrativo das pontuações das escolhas
+/*TESTE NO CONSOLE
 console.log(
     "Design_marca " + design_marca + ", " +
     "Design_editorial " + design_editorial + ", " +
@@ -31,7 +31,7 @@ console.log(
     "Design_jogos " + design_jogos + ", " +
     "Web_design " + web_design + ", " +
     "Ui_design " + ui_design
-);
+); */
 
 //Click de escolha para começar
 comecar.onclick = function () {
@@ -44,14 +44,13 @@ comecar.onclick = function () {
 var listaRespostas = document.querySelectorAll("section li");
 listaRespostas.forEach(function (este) {
     este.addEventListener("click", function (e) {
-        passar.removeAttribute("disabled");
-        resultado.removeAttribute("disabled");
         var elems = document.querySelector(".selecionado");
         if (elems !== null) {
             elems.removeAttribute("class");
         }
-        e.target.className = "selecionado";
-
+        este.classList.add("selecionado");
+        passar.removeAttribute("disabled");
+        resultado.removeAttribute("disabled");
     });
 });
 
@@ -127,7 +126,8 @@ resultado.onclick = function () {
 //adiciona ++ para perfil referente a escolha/resposta
 function calcularRespostas() {
     var elems = document.querySelector(".selecionado");
-    console.clear()
+    /* TESTE NO CONSOLE
+    console.clear(); */
     var estePerfil = elems.getAttribute("data-resposta");
     switch (estePerfil) {
         case "1"://Salário alto, mesmo infatisfeito com o que faço
@@ -359,8 +359,9 @@ function calcularRespostas() {
             ui_design++;
             break;
         default:
-            alert("É nescessário escolher 1 opção!");
+            alert("É nescessário responder 1 opção!");
     };
+    /* TESTE NO CONSOLE
     console.log(
         "Design_marca " + design_marca + ", " +
         "Design_editorial " + design_editorial + ", " +
@@ -372,6 +373,6 @@ function calcularRespostas() {
         "Design_jogos " + design_jogos + ", " +
         "Web_design " + web_design + ", " +
         "Ui_design " + ui_design
-    );
+    ); */
 };
 

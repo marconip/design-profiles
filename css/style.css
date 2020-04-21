@@ -130,7 +130,7 @@ article h2 {
 
 article h3 {
     text-align: center;
-    font-size: 60px;
+    font-size: 4rem;
     font-weight: 400;
     line-height: 1.1;
     color: #00BCD4;
@@ -147,7 +147,7 @@ article li {
     height: 160px;
     overflow: hidden;
     border-radius: 10px;
-    background-image: url("../img/design.jpg");
+    background-image: url("../img/perguntas.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -158,11 +158,11 @@ article li {
 }
 
 .design_marca .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/marca.jpg");
 }
 
 .web_design .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/web.jpg");
 }
 
 .design_grafico .image {
@@ -170,23 +170,23 @@ article li {
 }
 
 .design_produto .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/produto.jpg");
 }
 
 .ux_design .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/ux.jpg");
 }
 
 .ui_design .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/ui.jpg");
 }
 
 .design_digital .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/digital.jpg");
 }
 
 .design_personagem .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/personagem.jpg");
 }
 
 .design_jogos .image {
@@ -194,7 +194,7 @@ article li {
 }
 
 .design_editorial .image {
-    background-image: url("../img/designer.jpg");
+    background-image: url("../img/editorial.jpg");
 }
 
 img {
@@ -220,7 +220,7 @@ img {
     color: #fff;
     text-align: center;
     border-radius: 30px;
-    background: #ccc;
+    background: #a6a6a6;
     overflow: hidden;
 }
 
@@ -252,7 +252,8 @@ button {
     height: 48px;
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
     color: #fff;
     background-color: #1cb0f6;
     text-align: center;
